@@ -1,4 +1,4 @@
-<center><img src="./assets/lastfm-to-mastodon.png" width=256></center>
+<img src="./assets/lastfm-to-mastodon.png" width=256px>
 
 # lastfm-to-mastodon
 
@@ -11,8 +11,8 @@ On the first day of each month, this script fetches your most-played album from 
 ## Requirements
 
 - Python 3.x
-- LastFM account and application
-- Mastodon account and application
+- LastFM account and [application](https://www.last.fm/api/account/create)
+- Mastodon account and [application](https://docs.joinmastodon.org/client/intro/)
 
 ## Configuration
 
