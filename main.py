@@ -81,7 +81,7 @@ def create_message(album, month_word):
     playcount = album.get_userplaycount()
     tags = album.get_top_tags()
 
-    message = f"My favorite album from {month_word} was {album.title} by {artist}. In total, I've listened to this album {playcount} times. {album_url}\n"
+    message = f"In {month_word}, I thought the album {album.title} by {artist} was 🔥 In total, I've listened to it {playcount} times. {album_url}\n"
 
     for tag in tags[1:5]:  # Limit to 4 tags
         message += f"#{tag.item.name.strip().lower().replace(' ', '')} "
