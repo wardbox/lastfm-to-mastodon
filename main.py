@@ -101,31 +101,32 @@ def post_to_mastodon(mastodon, message):
 
 def main():
     try:
-      if datetime.date.today().day != 1:
-          logging.info("Not the first day of the month. Exiting.")
-          return
+        if datetime.date.today().day != 1:
+            logging.info("Not the first day of the month. Exiting.")
+            return
 
-      network = pylast.LastFMNetwork(
-          api_key=LASTFM_API_KEY,
-          api_secret=LASTFM_API_SECRET,
-          username=LASTFM_USERNAME,
-          password_hash=pylast.md5(LASTFM_PASSWORD),
-      )
+        network = pylast.LastFMNetwork(
+            api_key=LASTFM_API_KEY,
+            api_secret=LASTFM_API_SECRET,
+            username=LASTFM_USERNAME,
+            password_hash=pylast.md5(LASTFM_PASSWORD),
+        )
 
-      month, month_word = get_last_month()
-      top_album = fetch_top_album(network, month)
+        month, month_word = get_last_month()
+        top_album = fetch_top_album(network, month)
 
-      if top_album:
-          message = create_message(top_album, month_word)
-          mastodon = Mastodon(
-              access_token=MASTODON_ACCESS_TOKEN, api_base_url=MASTODON_BASE_URL
-          )
-          post_to_mastodon(mastodon, message)
-          logging.info("Message posted to Mastodon.")
-      else:
-          logging.info("No top album to post.")
+        if top_album:
+            message = create_message(top_album, month_word)
+            mastodon = Mastodon(
+                access_token=MASTODON_ACCESS_TOKEN, api_base_url=MASTODON_BASE_URL
+            )
+            post_to_mastodon(mastodon, message)
+            logging.info("Message posted to Mastodon.")
+        else:
+            logging.info("No top album to post.")
     except Exception as e:
-      logging.error(e)
+        logging.error(e)
+
 
 if __name__ == "__main__":
     main()
