@@ -2,7 +2,7 @@ name: Monthly Album Poster
 
 on:
   schedule:
-    # Runs at 00:00 UTC on the 1st of every month
+    # Runs at 14:00 UTC on the 1st of every month
     - cron: '0 14 1 * *'
   workflow_dispatch:
 
