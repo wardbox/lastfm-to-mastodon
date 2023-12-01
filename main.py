@@ -120,6 +120,7 @@ def main():
             mastodon = Mastodon(
                 access_token=MASTODON_ACCESS_TOKEN, api_base_url=MASTODON_BASE_URL
             )
+            logging.info(f"Toot: {message}")
             post_to_mastodon(mastodon, message)
             logging.info("Message posted to Mastodon.")
         else:
